@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes appareils</h2>
+      <ul class="list-group">
+        <ul class="list-group">
+          <app-device [deviceName]="deviceOne" [deviceStatus]="on"></app-device>
+          <app-device [deviceName]="deviceTwo" [deviceStatus]="on"></app-device>
+          <app-device [deviceName]="deviceThree" [deviceStatus]="off"></app-device>
+      </ul>
+      </ul>
+      <button class="btn btn-success" [disabled]="!isAuth" (click)="onPowerOn()">Power on</button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
