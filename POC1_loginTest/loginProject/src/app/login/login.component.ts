@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  userEmail: string;
+  userPswd: string;
+
+  authenticated: boolean = false;
+
+  constructor(private httpClient: HttpClient) { }
+
+  onConnect() {
+    console.log("clicked " + this.userEmail + " " + this.userPswd);
+    /*this.httpClient
+      .get('http://localhost:8080/login?mail=' + this.userEmail + '&pswd=' + this.userPswd)
+      .forEach(next =>
+        this.authenticated = (next as JSON)["auth"]);*/
+  }
 
   ngOnInit() {
   }

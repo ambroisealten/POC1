@@ -8,10 +8,9 @@
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
     <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <input type="email" placeholder="email" [(ngModel)]="userEmail" name="userEmail"/>
+      <input type="password" placeholder="password" [(ngModel)]="userPswd" name="userPswd"/>
+      <button class="btn btn-success" (click)="onConnect()">Login</button>
     </form>
   </div>
 </div>
