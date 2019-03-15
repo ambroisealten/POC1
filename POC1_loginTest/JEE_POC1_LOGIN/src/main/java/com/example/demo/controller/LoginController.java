@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +57,11 @@ public class LoginController {
 		userRepository.insert(new User("","",mail,""));
 		User user = userRepository.findByMail(mail);
 		return gson.toJson(JWTokenUtility.buildJWT(user.getMail()));
+	}
+
+	public static List<String> findUserRole(String subject) {
+		// TODO return the user list
+		return null;
 	}
 
 }
