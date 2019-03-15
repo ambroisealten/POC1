@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+.headNavbar{
+    margin-left: 8%;
+}
+
+#home{
+    fill : #043962;
+}
+.headMenu{
+    margin-left:15%;
+    margin-right:15%;
+}
+
+#logo{
+    margin-top: 1.5%;
+    margin-left: 1.5%;
+    width: 3%;
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    background-color: white; 
+}
+
+#dropdown03{
+    background-color: hsla(0,0%,100%,.2);
+}
