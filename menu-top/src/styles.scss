@@ -13,6 +13,14 @@
     margin-right:15%;
 }
 
+#account{
+    width: 3%;
+    margin: auto;
+    position: fixed;
+    top:0;
+    right: 0;
+}
+
 #logo{
     margin-top: 1.5%;
     margin-left: 1.5%;
@@ -23,6 +31,18 @@
     background-color: white; 
 }
 
-#dropdown03{
+#moduleHome{
+    display: grid;
     background-color: hsla(0,0%,100%,.2);
+}
+
+#dropdown03{
+    margin: auto;
+}
+
+#modules{
+    padding: 3.5%;
+    display: none;
+    grid-template-columns: repeat(3,1fr);
+    height: inherit;
 }
