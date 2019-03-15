@@ -17,10 +17,12 @@ export class LoginComponent implements OnInit {
 
   onConnect() {
     console.log("clicked " + this.userEmail + " " + this.userPswd);
-    /*this.httpClient
+    this.httpClient
       .get('http://localhost:8080/login?mail=' + this.userEmail + '&pswd=' + this.userPswd)
       .forEach(next =>
-        this.authenticated = (next as JSON)["auth"]);*/
+        this.authenticated = (next as JSON)["auth"]);
+    console.log("clicked " + this.userEmail + " " + this.userPswd + " " + this.authenticated);
+
   }
 
   ngOnInit() {

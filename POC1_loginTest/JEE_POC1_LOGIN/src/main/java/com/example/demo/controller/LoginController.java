@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.dao.UserRepository;
 import com.example.demo.model.User;
+import com.example.demo.security.JWTokenUtility;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -49,11 +50,12 @@ public class LoginController {
 
 //	@RequestMapping(value="/login", method=RequestMethod.GET, produces="application.json")
 		//@CrossOrigin(origins="http://localhost:4200")
-	@GetMapping("/")
+	@GetMapping("/login")
 	@ResponseBody
 	public String login(@RequestParam String mail, @RequestParam String pswd) throws ParseException{
+		userRepository.insert(new User("","",mail,""));
 		User user = userRepository.findByMail(mail);
-		return gson.toJson(user);
+		return gson.toJson(JWTokenUtility.buildJWT(user.getMail()));
 	}
 
 }
