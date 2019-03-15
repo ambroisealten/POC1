@@ -12,22 +12,15 @@ export class DeviceComponent implements OnInit {
   @Input() deviceStatus: string;
 
   constructor(private httpClient: HttpClient) {
-    this.deviceName = 'ddddddddddddddcc';
-    console.log(this.saveAppareilsToServer());
+    this.saveAppareilsToServer();
  }
 
   saveAppareilsToServer() {
     this.httpClient
-      .get('http://localhost:8080/cc?nom=' + this.deviceName)
-      .subscribe(
-        (response) => {
-          console.log('cc' + response);
-        },
-        (error) => {
-          console.log('Erreur ! : ' + error);
-        }
-      );
-}
+      .get('http://localhost:8080/cc?nom=' + 'hhhh')
+      .forEach(next =>
+        console.log('cc ' + (next as JSON)["nom"]));
+  }
 
   ngOnInit() {
   }
