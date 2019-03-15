@@ -1,9 +1,22 @@
-package model;
+package com.example.demo.model;
 
-public class User {
+import java.io.Serializable;
 
-	final private String mail;
-	private String pswd;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user")
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -3102945555563965533L;
+
+	@Id
+	private transient long _id;
+	
+    @Indexed(unique = true)
+	private String mail;
+	private transient String pswd;
 	private String name;
 	private String forname;
 	
@@ -41,6 +54,15 @@ public class User {
 	public String getMail() {
 		return mail;
 	}
+
+	public long getId() {
+		return _id;
+	}
+
+	public void setId(long id) {
+		this._id = id;
+	}
 	
 	
 }
+
