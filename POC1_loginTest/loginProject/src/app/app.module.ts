@@ -8,17 +8,20 @@ import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'users', component: UsersListComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,

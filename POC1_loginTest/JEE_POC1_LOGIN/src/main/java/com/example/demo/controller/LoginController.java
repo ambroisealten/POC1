@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.dao.UserRepository;
 import com.example.demo.model.User;
 import com.example.demo.security.JWTokenUtility;
+import com.example.demo.security.SigninNeeded;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,6 +69,13 @@ public class LoginController {
 		}
 		
 		return HttpStatus.CREATED;
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@GetMapping("/users")
+	@ResponseBody
+	public String getUsers(){
+		return gson.toJson(userRepository.findAll());		
 	}
 	
 	

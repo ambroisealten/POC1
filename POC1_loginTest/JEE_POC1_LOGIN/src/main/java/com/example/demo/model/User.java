@@ -11,9 +11,7 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = -3102945555563965533L;
 
-	@Id
-	private transient long _id;
-	
+		
     @Indexed(unique = true)
 	private String mail;
 	private transient String pswd;
@@ -61,14 +59,6 @@ public class User implements Serializable {
 	
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-	public long getId() {
-		return _id;
-	}
-
-	public void setId(long id) {
-		this._id = id;
 	}
 	
 	
