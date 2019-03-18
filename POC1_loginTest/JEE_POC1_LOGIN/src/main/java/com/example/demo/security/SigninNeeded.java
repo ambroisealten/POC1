@@ -6,9 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import javax.ws.rs.NameBinding;
+import javax.xml.ws.BindingType;
 
 @NameBinding
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(value = RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface SigninNeeded {
 }

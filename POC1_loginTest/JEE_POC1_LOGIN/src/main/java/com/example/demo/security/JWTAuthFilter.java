@@ -17,11 +17,13 @@ import org.jose4j.jwt.JwtClaims;
 import org.jose4j.jwt.consumer.InvalidJwtException;
 import org.jose4j.jwt.consumer.JwtConsumer;
 import org.jose4j.jwt.consumer.JwtConsumerBuilder;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.controller.LoginController;
 
 @Provider
-@SigninNeeded
+
+//@SigninNeeded
 //@Priority(Priorities.AUTHENTICATION)
 public class JWTAuthFilter implements ContainerRequestFilter {
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { generate } from 'password-hash';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit {
 
     let postParams = {
       mail: this.userEmail,
-      pswd: this.userPswd,
+      pswd: generate(this.userPswd, {algorithm: 'sha512', saltLength: 9, iterations: 11}),
     }
 
     this.httpClient.post('http://localhost:8080/login', postParams).subscribe(data => {
