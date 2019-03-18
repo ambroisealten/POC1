@@ -27,6 +27,10 @@ public class User implements Serializable {
 		this.pswd=pswd;
 	}
 
+	public User() {
+		super();
+	}
+
 	public String getPswd() {
 		return pswd;
 	}
@@ -53,6 +57,10 @@ public class User implements Serializable {
 
 	public String getMail() {
 		return mail;
+	}
+	
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public long getId() {

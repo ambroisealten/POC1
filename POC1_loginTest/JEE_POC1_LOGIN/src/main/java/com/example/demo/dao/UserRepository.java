@@ -17,5 +17,5 @@ public interface UserRepository extends MongoRepository<User, Long> {
     // Supports native JSON query string
     @Query("{forname:'?0'}")
     List<User> findCustomByForname(String fullName);
- 
+     
 }

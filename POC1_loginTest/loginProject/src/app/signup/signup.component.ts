@@ -13,14 +13,19 @@ export class SignupComponent implements OnInit {
   userLastname: string;
 
   onSignup() {
-    console.log("clicked " + this.userEmail + " " + this.userPswd);
-    // TODO post data
-    /*this.httpClient
-      .get('http://localhost:8080/signup?mail=' + this.userEmail + '&pswd=' + this.userPswd
-                                                + '&firstname=' + this.userFirstname + '&lastname=' + this.userLastname)
-      .forEach(next =>
-        console.log("CC"));*/
-    console.log("clicked " + this.userEmail + " " + this.userPswd + " " + this.userFirstname + " " + this.userLastname);
+    let postParams = {
+      mail: this.userEmail,
+      pswd: this.userPswd,
+      name: this.userLastname,
+      forname: this.userFirstname
+    }
+    this.httpClient.post('http://localhost:8080/signup', postParams)
+      .subscribe(data => {
+        console.log(data);
+        window.sessionStorage.setItem("bearerToken", data.toString());
+      }, error => {
+        console.log(error);// Error getting the data
+      });
   }
 
   constructor(private httpClient: HttpClient) { }

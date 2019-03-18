@@ -16,12 +16,19 @@ export class LoginComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   onConnect() {
-    console.log("clicked " + this.userEmail + " " + this.userPswd);
-    // TODO post data
-    this.httpClient
-      .get('http://localhost:8080/login?mail=' + this.userEmail + '&pswd=' + this.userPswd)
-      .forEach(next =>
-        this.authenticated = (next as JSON)["auth"]);
+
+    let postParams = {
+      mail: this.userEmail,
+      pswd: this.userPswd,
+    }
+
+    this.httpClient.post('http://localhost:8080/login', postParams).subscribe(data => {
+      console.log(data);
+      window.sessionStorage.setItem("bearerToken", data.toString());
+    }, error => {
+      console.log(error);// Error getting the data
+    });
+
     console.log("clicked " + this.userEmail + " " + this.userPswd + " " + this.authenticated);
   }
 

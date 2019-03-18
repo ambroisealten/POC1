@@ -1,23 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<nav class="navbar navabar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+        <li routerLinkActive="active"> <a routerLink="auth">Authentification</a></li>
+        <li routerLinkActive="active"> <a routerLink="devices">Devices</a></li>
+      </ul>
+      <div class="navbar-right">
+        Vous êtes connectés depuis {{ seconds }} secondes.
+        </div>
+    </div>
+  </nav>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>Mes appareils</h2>
-      <ul class="list-group">
-        <ul class="list-group">
-          <app-device [deviceName]="deviceOne" [deviceStatus]="on"></app-device>
-          <app-device [deviceName]="deviceTwo" [deviceStatus]="on"></app-device>
-          <app-device [deviceName]="deviceThree" [deviceStatus]="off"></app-device>
-      </ul>
-      </ul>
-      <button class="btn btn-success" [disabled]="!isAuth" (click)="onPowerOn()">Power on</button>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
-
-<router-outlet></router-outlet>
