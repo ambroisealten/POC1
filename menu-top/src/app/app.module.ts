@@ -10,13 +10,15 @@ import { SearchAutoComponent } from './search-auto/search-auto.component';
 import { SearchAutoGroupComponent } from './search-auto-group/search-auto-group.component'
 import { SearchService } from './services/search.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchAutoComponent,
-    SearchAutoGroupComponent
+    SearchAutoGroupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 body { 
+    text-align: center;
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
 }
@@ -22,18 +23,20 @@ body {
 #home{
     fill : #043962;
 }
+
 .headMenu{
     margin-left:15%;
     margin-right:15%;
 }
 
 #account{
-    width: 3%;
+    width: 40%;
     margin: auto;
-    position: fixed;
-    top:2;
-    right:0;
-    margin-right: 1%;
+}
+
+.surheader nav {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
 }
 
 main,form{
@@ -42,13 +45,15 @@ main,form{
 }
 
 #logo{
-    margin-top: 1.5%;
-    margin-left: 1.5%;
-    width: 3.5%;
+    margin-top: 3%;
+    margin-left: 1%;
+    min-height: 75px;
+    width: 4%;
+    min-width: 50px;
     position: absolute;
     left: 0;
     z-index: 5;
-    background-color: white; 
+    background-color: rgba(255, 255, 255, 0.95); 
 }
 
 #moduleHome{
@@ -57,14 +62,13 @@ main,form{
 }
 
 #dropdown03{
-    margin: auto;
+    text-align: center;
 }
 
 #modules{
-    padding: 3.5%;
+    padding: 3.46%;
     display: none;
     grid-template-columns: repeat(3,1fr);
-    height: inherit;
 }
 
 .allTagWords{

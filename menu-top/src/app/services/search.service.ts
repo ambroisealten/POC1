@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Options } from 'selenium-webdriver/chrome';
 
 @Injectable()
 export class SearchService {
