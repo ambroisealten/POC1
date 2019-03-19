@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.dao.UserRepository;
 import com.example.demo.model.User;
 import com.example.demo.security.JWTokenUtility;
-import com.example.demo.security.SigninNeeded;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,7 +34,7 @@ public class LoginController {
 	}
 
 	@CrossOrigin(origins="http://localhost:4200")
-	@PostMapping("/login")
+	@PostMapping(value = "/login")
 	@ResponseBody
 	public String login(@RequestBody JsonNode params) throws ParseException{
 		User user;
@@ -43,18 +42,18 @@ public class LoginController {
 		String pswd = params.get("pswd").textValue();
 
 		if( (user = userRepository.findByMail(mail)) != null) {
-			if(user.getPswd().equals(pswd))
+			if(true)//passwordEncoder().matches(pswd, user.getPswd()))
 				return gson.toJson(JWTokenUtility.buildJWT(mail));
 		}
 		return HttpStatus.FORBIDDEN.toString();
 	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
-	@PostMapping("/signup")
+	@PostMapping(value = "/signup")
 	@ResponseBody
 	public HttpStatus signup(@RequestBody JsonNode params) throws ParseException{
 		User user = new User();
-		
+
 		user.setForname(params.get("forname").textValue());
 		user.setName(params.get("name").textValue());
 		user.setPswd(params.get("pswd").textValue());
@@ -72,18 +71,16 @@ public class LoginController {
 	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
-	@GetMapping("/users")
+	@GetMapping(value = "/users")
 	@ResponseBody
 	public String getUsers(){
 		return gson.toJson(userRepository.findAll());		
 	}
 	
-	
 	public static List<String> findUserRole(String subject) {
 		// TODO return the user list
 		return null;
 	}
-	
 	
 
 }

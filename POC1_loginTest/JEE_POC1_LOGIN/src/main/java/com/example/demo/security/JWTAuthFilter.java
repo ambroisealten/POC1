@@ -27,6 +27,11 @@ import com.example.demo.controller.LoginController;
 //@Priority(Priorities.AUTHENTICATION)
 public class JWTAuthFilter implements ContainerRequestFilter {
 
+	
+	
+	
+	
+	
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 
