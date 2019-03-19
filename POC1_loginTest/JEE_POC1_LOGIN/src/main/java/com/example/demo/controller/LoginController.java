@@ -17,8 +17,13 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.dao.UserRepository;
+import com.example.demo.httpStatus.ConflictException;
+import com.example.demo.httpStatus.CreatedException;
+import com.example.demo.httpStatus.ForbiddenException;
+import com.example.demo.httpStatus.UnauthorizedException;
 import com.example.demo.model.User;
 import com.example.demo.security.JWTokenUtility;
 import com.example.demo.utils.Constants;
@@ -52,29 +57,28 @@ public class LoginController {
 			if(true)//passwordEncoder().matches(pswd, user.getPswd()))
 				return gson.toJson(JWTokenUtility.buildJWT(user.getMail()+"|"+user.getRole()));
 		}
-		return HttpStatus.FORBIDDEN.toString();
+		throw new ForbiddenException();
 	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping(value = "/signup")
 	@ResponseBody
-	public HttpStatus signup(@RequestBody JsonNode params) throws ParseException{
+	public void signup(@RequestBody JsonNode params) throws ParseException{
 		User user = new User();
-
 		user.setForname(params.get("forname").textValue());
 		user.setName(params.get("name").textValue());
 		user.setPswd(params.get("pswd").textValue());
 		user.setMail(params.get("mail").textValue());
+		user.setRole(Constants.ROLE_DEFAULT);
 		
 		try {
 			userRepository.insert(user);
 		}
-		catch(MongoWriteException e) {
-			System.out.println("Email already exists");
-			return HttpStatus.CONFLICT; // TODO change
+		catch(Exception e) {
+			throw new ConflictException();
 		}
 		
-		return HttpStatus.CREATED;
+		throw new CreatedException();
 	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
@@ -82,10 +86,10 @@ public class LoginController {
 	@ResponseBody
 	public String getUsers(@RequestAttribute("mail") String mail,@RequestAttribute("role") int role){
 		User user = userRepository.findByMail(mail);
-		if(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR)) {
-			return gson.toJson(userRepository.findAll());		
+		if(!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR))) {
+			throw new ForbiddenException();
 		}
-		return HttpStatus.UNAUTHORIZED.toString();
+		return gson.toJson(userRepository.findAll());		
 	}
 }
 

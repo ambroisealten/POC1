@@ -19,18 +19,9 @@ public class User implements Serializable {
 	private String name;
 	private String forname;
 	private transient int role;
-	
-	public User(String forname, String name, final String mail, String pswd) {
-		this.name=name;
-		this.forname=forname;
-		this.mail=mail;
-		this.pswd=pswd;
-		this.role = Constants.ROLE_DEFAULT;
-	}
 
 	public User() {
 		super();
-		this.role = Constants.ROLE_DEFAULT;
 	}
 
 	public String getPswd() {
