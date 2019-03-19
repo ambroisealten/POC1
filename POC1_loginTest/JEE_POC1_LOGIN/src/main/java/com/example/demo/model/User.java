@@ -2,9 +2,10 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.example.demo.utils.Constants;
 
 @Document(collection="user")
 public class User implements Serializable {
@@ -17,16 +18,19 @@ public class User implements Serializable {
 	private transient String pswd;
 	private String name;
 	private String forname;
+	private transient int role;
 	
 	public User(String forname, String name, final String mail, String pswd) {
 		this.name=name;
 		this.forname=forname;
 		this.mail=mail;
 		this.pswd=pswd;
+		this.role = Constants.ROLE_DEFAULT;
 	}
 
 	public User() {
 		super();
+		this.role = Constants.ROLE_DEFAULT;
 	}
 
 	public String getPswd() {
@@ -60,7 +64,13 @@ public class User implements Serializable {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	
-	
+
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}	
 }
 
