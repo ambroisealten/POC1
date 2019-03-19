@@ -1,5 +1,5 @@
 <h2>Exemple d'un champ d'auto-complétion simple</h2>
-<form class="example-form">
+<form class="example-form" (ngSubmit)="onSubmitForm()">
   <mat-form-field class="example-full-width">
     <input type="text" placeholder="Rechercher" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -9,3 +9,10 @@
     </mat-autocomplete>
   </mat-form-field>
 </form>
+<h3>Mots-clés pris en compte :</h3>
+<div class="allTagWords">
+  <div class="tagWord" *ngFor="let tagWord of tagWords">
+    <p>{{ tagWord }}</p>
+    <img class="closeTag" src='../../assets/images/close.png' alt="Supprimer {{ tagWord }} en tant que mot-clé" (click)="deleteTagWord($event)">
+  </div>
+</div>
