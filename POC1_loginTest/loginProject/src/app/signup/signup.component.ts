@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as sha512 from 'js-sha512';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
 
     let postParams = {
       mail: this.userEmail,
-      pswd: this.userPswd,
+      pswd: sha512.sha512(this.userPswd),
       name: this.userLastname,
       forname: this.userFirstname
     }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as sha512 from 'js-sha512';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
 
     let postParams = {
       mail: this.userEmail,
-      pswd: this.userPswd,
+      pswd: sha512.sha512(this.userPswd),
     }
 
     this.httpClient.post('http://localhost:8080/login', postParams).subscribe(data => {
