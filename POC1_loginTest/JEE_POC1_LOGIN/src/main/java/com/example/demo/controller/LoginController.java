@@ -27,6 +27,7 @@ import com.example.demo.httpStatus.UnauthorizedException;
 import com.example.demo.model.User;
 import com.example.demo.security.JWTokenUtility;
 import com.example.demo.utils.Constants;
+import com.example.demo.utils.PasswordUtility;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,13 +49,13 @@ public class LoginController {
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public String login(@RequestBody JsonNode params) throws ParseException{
+	public String login(@RequestBody JsonNode params) throws Exception{
 		User user;
 		String mail = params.get("mail").textValue();
 		String pswd = params.get("pswd").textValue();
 
 		if( (user = userRepository.findByMail(mail)) != null) {
-			if(true)//passwordEncoder().matches(pswd, user.getPswd()))
+			if(PasswordUtility.check(pswd, user.getPswd()))
 				return gson.toJson(JWTokenUtility.buildJWT(user.getMail()+"|"+user.getRole()));
 		}
 		throw new ForbiddenException();
@@ -63,11 +64,11 @@ public class LoginController {
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping(value = "/signup")
 	@ResponseBody
-	public void signup(@RequestBody JsonNode params) throws ParseException{
+	public void signup(@RequestBody JsonNode params) throws Exception{
 		User user = new User();
 		user.setForname(params.get("forname").textValue());
 		user.setName(params.get("name").textValue());
-		user.setPswd(params.get("pswd").textValue());
+		user.setPswd(PasswordUtility.getSaltedHash(params.get("pswd").textValue()));
 		user.setMail(params.get("mail").textValue());
 		user.setRole(Constants.ROLE_DEFAULT);
 		
