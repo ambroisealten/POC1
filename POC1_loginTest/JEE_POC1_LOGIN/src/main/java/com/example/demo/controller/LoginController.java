@@ -15,6 +15,7 @@ import com.example.demo.httpStatus.CreatedException;
 import com.example.demo.httpStatus.ForbiddenException;
 import com.example.demo.model.User;
 import com.example.demo.security.JWTokenUtility;
+import com.example.demo.security.Token;
 import com.example.demo.utils.Constants;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
@@ -55,8 +56,10 @@ public class LoginController {
 		String pswd = params.get("pswd").textValue();
 
 		if ((user = userRepository.findByMail(mail)) != null) {
-			if (pswd.equals(user.getPswd()))
-				return gson.toJson(JWTokenUtility.buildJWT(user.getMail() + "|" + user.getRole()));
+			if (pswd.equals(user.getPswd())) {
+				Token jsonResponse = JWTokenUtility.buildJWT(user.getMail() + "|" + user.getRole());
+				return gson.toJson(jsonResponse);
+			}
 		}
 		throw new ForbiddenException();
 	}
@@ -103,7 +106,7 @@ public class LoginController {
 	@ResponseBody
 	public String getUsers(@RequestAttribute("mail") String mail, @RequestAttribute("role") int role) throws Exception {
 		User user = userRepository.findByMail(mail);
-		if (!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR))) {
+		if (!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR || role == Constants.ROLE_DEFAULT))) { // TODO remove default
 			throw new ForbiddenException();
 		}
 		return gson.toJson(userRepository.findAll());
