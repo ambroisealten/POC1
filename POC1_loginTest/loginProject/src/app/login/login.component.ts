@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
     this.httpClient.post('http://localhost:8080/login', postParams).subscribe(data => {
       console.log(data);
-      window.sessionStorage.setItem("bearerToken", data.toString());
+      window.sessionStorage.setItem("bearerToken",JSON.parse(JSON.stringify(data))["token"]);
     }, error => {
       console.log(error);// Error getting the data
     });

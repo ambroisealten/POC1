@@ -20,7 +20,7 @@ public class JWTokenUtility {
 	 * @param subject user data to encrypt in token
 	 * @return String generated token
 	 */
-	public static String buildJWT(String subject) {
+	public static Token buildJWT(String subject) {
 		RsaJsonWebKey rsaJsonWebKey = RsaKeyProducer.produce();
 		System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
 
@@ -42,6 +42,6 @@ public class JWTokenUtility {
 		} catch (JoseException ex) {
 			// Logger.getLogger(JWTAuthFilter.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		return jwt;
+		return new Token(jwt);
 	}
 }
