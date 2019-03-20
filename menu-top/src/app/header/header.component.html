@@ -16,15 +16,10 @@
           </nav>     
     </div>
     <div class="header">
-        <nav class="navbar mb-0 navbar-expand-sm navbar-light rounded-0" style="background-color: #eceae8">
+        <nav class="navbar mb-0navbar-light rounded-0" style="background-color: #eceae8">
           
           <div class="collapse navbar-collapse" class="headNavbar">
-            <ul class="navbar-nav mr-auto" >
-                <li class="nav-item active">
-                  <a class="nav-link" href="#"><svg id="home" viewBox="0 0 14 14" width="17px" height="17px">
-                    <path d="M13.8981458,6.5632 L7.66627916,0.269266667 C7.31114583,-0.0830666667 6.69187916,-0.0858666667 6.33207916,0.270666667 L0.0675458315,6.5982 C0.00127916486,6.66493333 -0.0183208351,6.76526667 0.0180791649,6.85206667 C0.0544791649,6.93933333 0.139412498,6.9958 0.233212498,6.9958 L0.933212498,6.9958 L0.933212498,13.7624667 C0.933212498,13.8912667 1.03774583,13.9958 1.16654583,13.9958 L4.89987916,13.9958 C5.02867916,13.9958 5.1332125,13.8912667 5.1332125,13.7624667 L5.1332125,8.862 L8.86654583,8.862 L8.86654583,13.762 C8.86654583,13.8908 8.97107916,13.9953333 9.09987916,13.9953333 L12.8332125,13.9953333 C12.9620125,13.9953333 13.0665458,13.8908 13.0665458,13.762 L13.0665458,6.99533333 L13.7712125,6.99533333 C13.9065458,6.99486667 14.0092125,6.89266667 14.0092125,6.762 C14.0092125,6.678 13.9648792,6.60426667 13.8981458,6.5632 Z"></path>
-                  </svg></a>  
-                </li>
+            <ul class="navbarContent" >
                 <ng-container *ngFor="let module of sousMenus">
                   <ng-container *ngIf="module.name === currentModule">
                     <li class="nav-item dropdown headMenu" *ngFor="let sousMenu of module.sousMenu">

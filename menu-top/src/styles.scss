@@ -7,6 +7,62 @@ body {
     margin: 0;
 }
 
+@media (max-width:600px){
+    a,body{
+        font-size: 2.2vw;
+    }
+}
+
+@media (min-width:600px) and (max-width:900px) {
+    a,body{
+        font-size : 1.7vw;
+    }
+}
+
+@media (min-width:900px) and (max-width:1200px){
+    a,body{
+        font-size : 1.35vw;
+    }
+} 
+
+@media (min-width:1200px) and (max-width:1500px){
+    a,body{
+        font-size: 1.1vw;
+    }
+}
+
+@media (min-width:1500px) {
+    a,body{
+        font-size: .95vw; 
+    }
+}
+
+
+
+.dropdown-menu{ 
+    margin-left: 30%; 
+    width: 50%;
+    min-width: 80px;
+}
+
+.navbarContent{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.surheader nav{
+    flex-direction: column;
+}
+
+.headNavbar, .navbarContent {
+    width: 100%;
+}
+
+.header nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .basic-container {
   padding: 30px;
 }
@@ -14,10 +70,6 @@ body {
 .version-info {
   font-size: 8pt;
   float: right;
-}
-
-.headNavbar{
-    margin-left: 8%;
 }
 
 #home{
@@ -28,6 +80,7 @@ body {
     margin-left:15%;
     margin-right:15%;
     transition: linear .5s;
+    list-style-type: none;
 }
 
 #account{
