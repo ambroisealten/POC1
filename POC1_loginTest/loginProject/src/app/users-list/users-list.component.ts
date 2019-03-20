@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UsersListComponent implements OnInit {
 
   users: string;
+  headers: HttpHeaders;
 
   constructor(private httpClient: HttpClient) {
     this.getUsers();
@@ -19,12 +20,11 @@ export class UsersListComponent implements OnInit {
 
   getUsers() {
     let token = window.sessionStorage.getItem("bearerToken");
+    
+    if(token != "" && token != null && token != undefined)
+      this.headers = new HttpHeaders({'Authorization': token });
 
-    let headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': token != "" ? token : ''});
-
-    let options = { headers: headers };
+    let options = { headers: this.headers };
 
     this.httpClient
       .get('http://localhost:8080/users', options)
