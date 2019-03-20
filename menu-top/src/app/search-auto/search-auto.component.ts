@@ -44,6 +44,6 @@ export class SearchAutoComponent implements OnInit {
   }
 
   deleteTagWord(event){
-    this.tagWords = this.SearchService.deleteOptionTaken(event.target.previousSibling.textContent);
+    this.tagWords = this.SearchService.deleteOptionTaken(event.target.nextSibling.textContent);
   }
 }

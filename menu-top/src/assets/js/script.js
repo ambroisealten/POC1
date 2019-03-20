@@ -1,9 +1,17 @@
 window.onload = charged;
-window.onchange = setHeadMenus;
+window.onchange = changed;
 
 function charged(){
     setModuleHome();
     setHeadMenus();
+    setCloseTag();
+}
+
+function changed(){
+    setTimeout(() => {
+        setHeadMenus();
+        setCloseTag();
+    },50);
 }
 
 function setModuleHome(){
@@ -35,6 +43,17 @@ function setHeadMenus(){
                 headMenu.firstChild.nextSibling.setAttribute('class',headMenu.firstChild.nextSibling.getAttribute('class').substr(0,headMenu.firstChild.nextSibling.getAttribute('class').length-5));    
             })
         };
-    },100);
-    
+    },50);
+}
+
+function setCloseTag(){
+    let closeTags = document.getElementsByClassName("closeTag");
+    for(let closeTag of closeTags){
+        closeTag.addEventListener("mouseover",function(e){
+            closeTag.parentElement.style = "background-color:red; color: white;";
+        });
+        closeTag.addEventListener("mouseout",function(e){
+            closeTag.parentElement.style = "background-color: #E6E6E9; color : #043962;";
+        });
+    }
 }
