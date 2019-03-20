@@ -44,6 +44,7 @@ public class TokenFilter implements Filter {
 
 		String requestURI = httpRequest.getRequestURI();
 		String method = httpRequest.getMethod();
+		// TODO temporaire
 		if (!(requestURI.contains("login") || requestURI.contains("signup") || method.equals(HttpMethod.OPTIONS))) {
 
 			try {
@@ -57,7 +58,7 @@ public class TokenFilter implements Filter {
 				chain.doFilter(httpRequest, response);
 
 			} catch (InvalidJwtException e) {
-				((HttpServletResponse) response).sendError(498, Constants.er498);
+				((HttpServletResponse) response).sendError(498, Constants.er498); // TODO change error code
 			}
 		} else {
 			chain.doFilter(request, response);

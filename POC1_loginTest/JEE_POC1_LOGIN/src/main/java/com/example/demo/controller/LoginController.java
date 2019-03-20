@@ -106,7 +106,8 @@ public class LoginController {
 	@ResponseBody
 	public String getUsers(@RequestAttribute("mail") String mail, @RequestAttribute("role") int role) throws Exception {
 		User user = userRepository.findByMail(mail);
-		if (!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR || role == Constants.ROLE_DEFAULT))) { // TODO remove default
+		System.out.println("mail : " + mail + "role : " + user.getRole());
+		if (!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR))) {
 			throw new ForbiddenException();
 		}
 		return gson.toJson(userRepository.findAll());
