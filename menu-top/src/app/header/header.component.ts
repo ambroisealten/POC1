@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 export class Module{
   name : string;
@@ -36,8 +37,9 @@ export class HeaderComponent implements OnInit {
     new Module("Forum",[new SousMenu("Candidats",["Quelque chose","Pareil","Idem"]),new SousMenu("Autre chose",["Quelque chose","Pareil","Idem"]),new SousMenu("Administration",["Quelque chose","Pareil","Idem"])])
     ];
 
-  constructor() { 
+  constructor(private titleService : Title) { 
     this.currentModule = this.defaultModule;
+    this.titleService.setTitle("Ambroise - "+this.currentModule);
   }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class HeaderComponent implements OnInit {
 
   setCurrentModule(event){
     this.currentModule = (event.target.textContent != this.currentModule) ? event.target.textContent : this.currentModule;
+    this.titleService.setTitle("Ambroise - "+this.currentModule);
   }
 
 }
