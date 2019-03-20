@@ -20,8 +20,20 @@ import org.jose4j.jwt.consumer.JwtConsumerBuilder;
 import com.example.demo.security.RsaKeyProducer;
 import com.example.demo.utils.Constants;
 
+/**
+ * Filter requests by token
+ * 
+ * @author Andy Chabalier, Camille Schnell
+ *
+ */
 public class TokenFilter implements Filter {
 
+	/**
+	 * Filter requests : - if path is in exception list (login, signup,...) --> no
+	 * filter - else filter in function of the user status (connected or not). If
+	 * connected, mail and role are put in the HTTP request attributes. Else throw
+	 * 498 http status "Invalid token".
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
@@ -41,14 +53,13 @@ public class TokenFilter implements Filter {
 
 				httpRequest.setAttribute("mail", subject);
 				httpRequest.setAttribute("role", role);
-				
+
 				chain.doFilter(httpRequest, response);
 
 			} catch (InvalidJwtException e) {
-				e.printStackTrace();
 				((HttpServletResponse) response).sendError(498, Constants.er498);
 			}
-		}else {
+		} else {
 			chain.doFilter(request, response);
 		}
 	}

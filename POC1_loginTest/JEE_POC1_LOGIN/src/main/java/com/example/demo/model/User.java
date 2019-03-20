@@ -5,13 +5,19 @@ import java.io.Serializable;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="user")
+/**
+ * User bean object role and password fields are transient so that they don't
+ * appear in the serialized object (json)
+ * 
+ * @author Andy Chabalier
+ *
+ */
+@Document(collection = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -3102945555563965533L;
 
-		
-    @Indexed(unique = true)
+	@Indexed(unique = true)
 	private String mail;
 	private transient String pswd;
 	private String name;
@@ -49,7 +55,7 @@ public class User implements Serializable {
 	public String getMail() {
 		return mail;
 	}
-	
+
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
@@ -60,6 +66,5 @@ public class User implements Serializable {
 
 	public void setRole(int role) {
 		this.role = role;
-	}	
+	}
 }
-

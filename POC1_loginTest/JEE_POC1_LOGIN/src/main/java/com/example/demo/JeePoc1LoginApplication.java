@@ -13,13 +13,30 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 import com.example.demo.filter.TokenFilter;
 
+/**
+ * Global application class
+ * 
+ * @author Andy Chabalier, Kylian Gehier, Camille Schnell
+ *
+ */
 @SpringBootApplication
 public class JeePoc1LoginApplication {
 
+	/**
+	 * Main entry of the application
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(JeePoc1LoginApplication.class, args);
 	}
 
+	/**
+	 * 
+	 * @param mongoDbFactory
+	 * @param context
+	 * @return mongo template
+	 */
 	@Bean
 	public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory, MongoMappingContext context) {
 
@@ -32,6 +49,12 @@ public class JeePoc1LoginApplication {
 
 	}
 
+	/**
+	 * Registers token filter to filter chain
+	 * 
+	 * @see TokenFilter
+	 * @return registration bean
+	 */
 	@Bean
 	public FilterRegistrationBean<TokenFilter> filterRegistrationBean() {
 		FilterRegistrationBean<TokenFilter> registrationBean = new FilterRegistrationBean<TokenFilter>();

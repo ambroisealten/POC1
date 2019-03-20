@@ -6,34 +6,42 @@ import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.jwt.JwtClaims;
 import org.jose4j.lang.JoseException;
 
+/**
+ * Provide utilities methods for JW Token
+ * 
+ * @author Andy Chabalier
+ *
+ */
 public class JWTokenUtility {
 
-   public static String buildJWT(String subject) {
-       RsaJsonWebKey rsaJsonWebKey = RsaKeyProducer.produce();
-       System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
+	/**
+	 * Build a JW token
+	 * 
+	 * @param subject user data to encrypt in token
+	 * @return String generated token
+	 */
+	public static String buildJWT(String subject) {
+		RsaJsonWebKey rsaJsonWebKey = RsaKeyProducer.produce();
+		System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
 
-       // création de la "charge utile" ou payload - la donnée Ã  crypter, ici 'subject'
-       JwtClaims claims = new JwtClaims();
-       claims.setSubject(subject);
+		// création de la "charge utile" ou payload - la donnée Ã chiffrer, ici
+		// 'subject'
+		JwtClaims claims = new JwtClaims();
+		claims.setSubject(subject);
 
-       // création de la signature
-       JsonWebSignature jws = new JsonWebSignature();
-       jws.setPayload(claims.toJson());
-       jws.setKey(rsaJsonWebKey.getPrivateKey());
-       jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA256);
+		// création de la signature
+		JsonWebSignature jws = new JsonWebSignature();
+		jws.setPayload(claims.toJson());
+		jws.setKey(rsaJsonWebKey.getPrivateKey());
+		jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA256);
 
-       // encodage du token JWT
-       String jwt = null;
-       try {
-           jwt = jws.getCompactSerialization();
-       } catch (JoseException ex) {
-           //Logger.getLogger(JWTAuthFilter.class.getName()).log(Level.SEVERE, null, ex);
-       }
-
-       System.out.println("Claim:\n" + claims);
-       System.out.println("JWS:\n" + jws);
-       System.out.println("JWT:\n" + jwt);
-
-       return jwt;
-   }
+		// encodage du token JWT
+		String jwt = null;
+		try {
+			jwt = jws.getCompactSerialization();
+		} catch (JoseException ex) {
+			// Logger.getLogger(JWTAuthFilter.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return jwt;
+	}
 }
