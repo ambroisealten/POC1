@@ -17,7 +17,11 @@ export class SearchAutoComponent implements OnInit {
   @Input() tagWords : string[];
 
   constructor(private SearchService : SearchService){
-    this.options = this.SearchService.getOptions();
+    this.SearchService.getOptions((options) =>{
+      console.log("Bonsoir : "+options);
+      this.options = options;
+    });
+    console.log("Bonsoir : "+this.options);
   }
 
   ngOnInit(){

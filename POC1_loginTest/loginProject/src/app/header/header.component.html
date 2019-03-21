@@ -27,7 +27,7 @@
                     <li class="nav-item dropdown headMenu" *ngFor="let sousMenu of module.sousMenu">
                       <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ sousMenu.title }}</a>
                       <div class="dropdown-menu" aria-labelledby="dropdown02">
-                        <a class="dropdown-item" href="{{ link.url }}" *ngFor="let link of sousMenu.links">{{ link.title }}</a>
+                        <a class="dropdown-item" routerLink="{{ link.url }}" *ngFor="let link of sousMenu.links">{{ link.title }}</a>
                       </div>
                     </li>
                   </ng-container>
