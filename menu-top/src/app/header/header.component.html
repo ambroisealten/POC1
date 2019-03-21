@@ -3,14 +3,16 @@
         <nav class="navbar mb-0 navbar-expand-sm navbar-dark rounded-0" style="background-color: #008bd2">
             <img src="../assets/images/LOGO_Alten_Couleurs_Black.svg" alt="Logo ALTEN" id="logo"/>
             <div class="collapse navbar-collapse" class="headNavbar">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown" id="moduleHome">
-                  <a class="nav-link text-light" href="#" id="dropdown03" >{{ currentModule }}</a>
-                  <div id="modules">
-                    <a class="nav-link text-light" *ngFor="let module of allModules" onclick="setHeadMenus()" (click)="setCurrentModule($event)">{{ module }}</a>
-                  </div>
-                </li>
-              </ul>
+              <div id="modules">
+                <p></p>
+                <ng-container *ngFor="let module of allModules">
+                  <a class="nav-link text-light" *ngIf="module === currentModule" id="moduleHome" onclick="setHeadMenus()" (click)="setCurrentModule($event)">{{ module }}</a>
+                  <ng-container #elseBlock>
+                      <a class="nav-link text-light otherModules" *ngIf="module != currentModule" onclick="setHeadMenus()" (click)="setCurrentModule($event)">{{ module }}</a>
+                  </ng-container>
+                </ng-container>
+                <p></p>
+              </div>
             </div>
             <img src="../assets/images/accountWhite.png" alt="Lien vers la page de connexion" id="account" />
           </nav>     

@@ -2,7 +2,6 @@ window.onload = charged;
 window.onchange = changed;
 
 function charged(){
-    setModuleHome();
     setHeadMenus();
     setCloseTag();
 }
@@ -14,19 +13,7 @@ function changed(){
     },50);
 }
 
-function setModuleHome(){
-    let moduleHome = document.getElementById("moduleHome");
-    if(moduleHome != undefined){
-        moduleHome.addEventListener("mouseover", function(e){
-            moduleHome.firstChild.style.display = "none";
-            moduleHome.firstChild.nextSibling.style.display = "grid";
-        });
-        moduleHome.addEventListener('mouseout',function(e){
-            moduleHome.firstChild.style.display = "grid";
-            moduleHome.firstChild.nextSibling.style.display = "none";
-        });
-    }
-}
+
 
 function handler(e){
     let parentNode = e.target.parentNode;

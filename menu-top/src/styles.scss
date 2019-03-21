@@ -7,9 +7,81 @@ body {
     margin: 0;
 }
 
-@media (max-width:600px){
+@media (max-width :400px){
+    #logo{
+        margin-top: 15%;
+        margin-left: 2%;
+    }
+
+    a,body{
+        font-size: 2.3vw;
+    }
+
+    h6{
+        font-size: 2.35vw;
+    }
+
+    h5{
+        font-size: 2.45vw;
+    }
+
+    h4{
+        font-size: 2.55vw; 
+    }
+
+    h3{
+        font-size: 2.65vw;
+    }
+
+    h2{
+        font-size: 2.8vw;
+    }
+
+    h1{
+        font-size: 3vw;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 10%;
+    }
+}
+
+@media (min-width : 400px) and (max-width:600px){
     a,body{
         font-size: 2.2vw;
+    }
+
+    h6{
+        font-size: 2.25vw;
+    }
+
+    h5{
+        font-size: 2.35vw;
+    }
+
+    h4{
+        font-size: 2.45vw; 
+    }
+
+    h3{
+        font-size: 2.55vw;
+    }
+
+    h2{
+        font-size: 2.7vw;
+    }
+
+    h1{
+        font-size: 2.9vw;
+    }
+
+    #logo{
+        margin-top: 10%;
+        margin-left: 2%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 7.5%;
     }
 }
 
@@ -17,11 +89,77 @@ body {
     a,body{
         font-size : 1.7vw;
     }
+
+    h6{
+        font-size: 1.75vw;
+    }
+
+    h5{
+        font-size: 1.85vw;
+    }
+
+    h4{
+        font-size: 1.95vw; 
+    }
+
+    h3{
+        font-size: 2.05vw;
+    }
+
+    h2{
+        font-size: 2.2vw;
+    }
+
+    h1{
+        font-size: 2.35vw;
+    }
+
+    #logo{
+        margin-top: 6%;
+        margin-left: 1.7%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 5%;
+    }
 }
 
 @media (min-width:900px) and (max-width:1200px){
     a,body{
         font-size : 1.35vw;
+    }
+
+    h6{
+        font-size: 1.39vw;
+    }
+
+    h5{
+        font-size: 1.5vw;
+    }
+
+    h4{
+        font-size: 1.6vw; 
+    }
+
+    h3{
+        font-size: 1.7vw;
+    }
+
+    h2{
+        font-size: 1.85vw;
+    }
+
+    h1{
+        font-size: 2vw;
+    }
+
+    #logo{
+        margin-top: 4.5%;
+        margin-left: 1.4%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 5%;
     }
 } 
 
@@ -29,11 +167,75 @@ body {
     a,body{
         font-size: 1.1vw;
     }
+
+    h6{
+        font-size: 1.16vw;
+    }
+
+    h5{
+        font-size: 1.25vw;
+    }
+
+    h4{
+        font-size: 1.35vw; 
+    }
+
+    h3{
+        font-size: 1.45vw;
+    }
+
+    h2{
+        font-size: 1.6vw;
+    }
+
+    h1{
+        font-size: 1.8vw;
+    }
+
+    #logo{
+        margin-top: 3.3%;
+        margin-left: 1.2%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(5,1fr);
+    }
 }
 
 @media (min-width:1500px) {
-    a,body{
+    a,body,h1,h2,h3,h4,h5,h6{
         font-size: .95vw; 
+    }
+
+    h6{
+        font-size: .99vw;
+    }
+
+    h5{
+        font-size: 1.1vw;
+    }
+
+    h4{
+        font-size: 1.2vw; 
+    }
+
+    h3{
+        font-size: 1.3vw;
+    }
+
+    h2{
+        font-size: 1.45vw;
+    }
+
+    h1{
+        font-size: 1.6vw;
+    }
+
+    #logo{
+        margin-top: 3%;
+        margin-left: 1%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(5,1fr);
     }
 }
 
@@ -86,6 +288,7 @@ body {
 #account{
     width: 40%;
     margin: auto;
+    min-width: 30px;
 }
 
 .surheader nav {
@@ -99,9 +302,7 @@ main,form{
 }
 
 #logo{
-    margin-top: 3%;
-    margin-left: 1%;
-    min-height: 75px;
+    min-height: 85px;
     width: 4%;
     min-width: 50px;
     position: absolute;
@@ -110,26 +311,32 @@ main,form{
     background-color: rgba(255, 255, 255, 0.95); 
 }
 
-#moduleHome{
-    display: grid;
-    background-color: hsla(0,0%,100%,.2);
-    transition: linear .2s;
-}
 
 #dropdown03{
     text-align: center;
 }
 
 #modules{
-    padding: 3.46%;
-    display: none;
-    grid-template-columns: repeat(3,1fr);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
     transition : linear .2s;
+}
+
+#moduleHome{
+    background-color: hsla(0,0%,100%,.4);
+}
+
+.otherModules{
+    display : inline;
+    background-color: hsla(0,0%,100%,.2);
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
 .allTagWords{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
 }
 
 .tagWord{

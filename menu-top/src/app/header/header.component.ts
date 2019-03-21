@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   setCurrentModule(event){
+    console.log(event.target.textContent);
     this.currentModule = (event.target.textContent != this.currentModule) ? event.target.textContent : this.currentModule;
     this.titleService.setTitle("Ambroise - "+this.currentModule);
   }
