@@ -15,4 +15,5 @@ public class Constants {
 	public static final int ROLE_DEFAULT = -1;
 	public static final int ROLE_MANAGER = 0;
 	public static final int ROLE_CDR = 1;
+	public static final String CLIENT_PORT = "4200";
 }
