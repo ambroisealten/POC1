@@ -1,0 +1,7 @@
+<h2>Mes appareils</h2>
+      <ul class="list-group">
+        <app-appareil *ngFor="let appareil of appareils; let i = index"
+          [appareilName]="appareil.name" [appareilStatus]="appareil.status" [lastUpdate]="appareil.lastUpdate" [id]="i"></app-appareil>
+      </ul>
+      <button class="btn btn-success" [disabled]="!isAuth" (click)="allumerTout()">Tout allumer</button>
+      <button class="btn btn-danger" [disabled]="!isAuth" (click)="eteindreTout()">Tout éteindre</button>

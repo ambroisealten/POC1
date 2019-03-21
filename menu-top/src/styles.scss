@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body { 
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+}
+
+@media (max-width:600px){
+    a,body{
+        font-size: 2.2vw;
+    }
+}
+
+@media (min-width:600px) and (max-width:900px) {
+    a,body{
+        font-size : 1.7vw;
+    }
+}
+
+@media (min-width:900px) and (max-width:1200px){
+    a,body{
+        font-size : 1.35vw;
+    }
+} 
+
+@media (min-width:1200px) and (max-width:1500px){
+    a,body{
+        font-size: 1.1vw;
+    }
+}
+
+@media (min-width:1500px) {
+    a,body{
+        font-size: .95vw; 
+    }
+}
+
+
+
+.dropdown-menu{ 
+    margin-left: 30%; 
+    width: 50%;
+    min-width: 80px;
+}
+
+.navbarContent{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.surheader nav{
+    flex-direction: column;
+}
+
+.headNavbar, .navbarContent {
+    width: 100%;
+}
+
+.header nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+#home{
+    fill : #043962;
+}
+
+.headMenu{
+    margin-left:15%;
+    margin-right:15%;
+    transition: linear .5s;
+    list-style-type: none;
+}
+
+#account{
+    width: 40%;
+    margin: auto;
+}
+
+.surheader nav {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+main,form{
+    margin:auto;
+    text-align: center;
+}
+
+#logo{
+    margin-top: 3%;
+    margin-left: 1%;
+    min-height: 75px;
+    width: 4%;
+    min-width: 50px;
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.95); 
+}
+
+#moduleHome{
+    display: grid;
+    background-color: hsla(0,0%,100%,.2);
+    transition: linear .2s;
+}
+
+#dropdown03{
+    text-align: center;
+}
+
+#modules{
+    padding: 3.46%;
+    display: none;
+    grid-template-columns: repeat(3,1fr);
+    transition : linear .2s;
+}
+
+.allTagWords{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.tagWord{
+    color :#043962;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 40%;
+    background-color: #E6E6E9;
+    border-radius: 5px;
+    margin-bottom: 1%; 
+    transition: linear .2s;
+    min-width: 75px;
+}
+
+.tagWord p{
+    margin:auto;
+}
+
+.closeTag{
+    filter : brightness(55%);
+    margin: auto;   
+    width: 60%;
+    min-width: 10px;
+    transition : linear .2s;
+}
+
+.closeTag:hover{
+    filter : brightness(0) invert(1);
+}
