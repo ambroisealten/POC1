@@ -1,12 +1,16 @@
 package com.example.demo.controller;
 
+import javax.ws.rs.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.dao.UserRepository;
@@ -110,5 +114,18 @@ public class LoginController {
 			throw new ForbiddenException();
 		}
 		return gson.toJson(userRepository.findAll());
+	}
+	
+
+	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
+	@GetMapping(value = "/user")
+	@ResponseBody
+	public String getUser(@RequestParam(value = "mail") String mailToFind, @RequestAttribute("mail") String mail, @RequestAttribute("role") int role) throws Exception {
+		System.out.println(mailToFind);
+		User user = userRepository.findByMail(mail);
+		if (!(user.getRole() == role && (role == Constants.ROLE_MANAGER || role == Constants.ROLE_CDR || role == Constants.ROLE_DEFAULT))) { // TODO remove default
+			throw new ForbiddenException();
+		}
+		return gson.toJson(userRepository.findByMail(mailToFind));
 	}
 }

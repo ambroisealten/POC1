@@ -32,11 +32,29 @@ export class SearchService {
           .get('http://localhost:8080/users', options)
           .subscribe(data => {
             for(let item of JSON.parse(JSON.stringify(data))){
-                this.options.push(item["name"]+" "+item['forname']);
+                this.options.push(item["mail"]);
             }
             console.log(this.options);
             console.log("ICICICICICICICICICICIC"+this.options);
             callback(this.options);
+          }, error => {
+            console.log(error);// Error getting the data
+          });
+    }
+
+    getUser(mail : string,callback){
+        let token = window.sessionStorage.getItem("bearerToken");
+       let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token != "" ? token : ''});
+    
+        let options = { headers: headers };
+    
+        this.httpClient
+          .get('http://localhost:8080/user?mail='+mail, options)
+          .subscribe(data => {
+            console.log(JSON.parse(JSON.stringify(data)));
+            callback(JSON.parse(JSON.stringify(data)));
           }, error => {
             console.log(error);// Error getting the data
           });

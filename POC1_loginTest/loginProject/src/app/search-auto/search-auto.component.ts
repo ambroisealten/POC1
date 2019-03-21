@@ -14,6 +14,7 @@ export class SearchAutoComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
   options: string[];
+  result : any;
   @Input() tagWords : string[];
 
   constructor(private SearchService : SearchService){
@@ -40,9 +41,18 @@ export class SearchAutoComponent implements OnInit {
   }
 
   onSubmitForm(){
+    /*
+    * Bout de code valide pour les mots-clés
+    *
     if(this.myControl.value != null && this.myControl.value.length > 0) {
       this.SearchService.addInDB(this.myControl.value);
       this.tagWords = this.SearchService.addOptionTaken(this.myControl.value);
+    }
+    */
+    if(this.myControl.value != null && this.myControl.value.length > 0) {
+      this.SearchService.getUser(this.myControl.value,(result) => {
+        this.result = result;
+      });
     }
     this.myControl.patchValue('');
   }

@@ -16,3 +16,6 @@
     <p>{{ tagWord }}</p>
   </div>
 </div>
+<div *ngIf="result !== undefined" id="results">
+  <p>{{ result.name }} {{ result.forname }}, mail : {{ result.mail }}</p>
+</div>
