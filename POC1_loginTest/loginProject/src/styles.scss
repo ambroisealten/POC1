@@ -1,1 +1,370 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body { 
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+}
+
+@media (max-width :400px){
+    #logo{
+        margin-top: 15%;
+        margin-left: 2%;
+    }
+
+    a,body{
+        font-size: 2.3vw;
+    }
+
+    h6{
+        font-size: 2.35vw;
+    }
+
+    h5{
+        font-size: 2.45vw;
+    }
+
+    h4{
+        font-size: 2.55vw; 
+    }
+
+    h3{
+        font-size: 2.65vw;
+    }
+
+    h2{
+        font-size: 2.8vw;
+    }
+
+    h1{
+        font-size: 3vw;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 10%;
+    }
+}
+
+@media (min-width : 400px) and (max-width:600px){
+    a,body{
+        font-size: 2.2vw;
+    }
+
+    h6{
+        font-size: 2.25vw;
+    }
+
+    h5{
+        font-size: 2.35vw;
+    }
+
+    h4{
+        font-size: 2.45vw; 
+    }
+
+    h3{
+        font-size: 2.55vw;
+    }
+
+    h2{
+        font-size: 2.7vw;
+    }
+
+    h1{
+        font-size: 2.9vw;
+    }
+
+    #logo{
+        margin-top: 10%;
+        margin-left: 2%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 7.5%;
+    }
+}
+
+@media (min-width:600px) and (max-width:900px) {
+    a,body{
+        font-size : 1.7vw;
+    }
+
+    h6{
+        font-size: 1.75vw;
+    }
+
+    h5{
+        font-size: 1.85vw;
+    }
+
+    h4{
+        font-size: 1.95vw; 
+    }
+
+    h3{
+        font-size: 2.05vw;
+    }
+
+    h2{
+        font-size: 2.2vw;
+    }
+
+    h1{
+        font-size: 2.35vw;
+    }
+
+    #logo{
+        margin-top: 6%;
+        margin-left: 1.7%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 5%;
+    }
+}
+
+@media (min-width:900px) and (max-width:1200px){
+    a,body{
+        font-size : 1.35vw;
+    }
+
+    h6{
+        font-size: 1.39vw;
+    }
+
+    h5{
+        font-size: 1.5vw;
+    }
+
+    h4{
+        font-size: 1.6vw; 
+    }
+
+    h3{
+        font-size: 1.7vw;
+    }
+
+    h2{
+        font-size: 1.85vw;
+    }
+
+    h1{
+        font-size: 2vw;
+    }
+
+    #logo{
+        margin-top: 4.5%;
+        margin-left: 1.4%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 5%;
+    }
+} 
+
+@media (min-width:1200px) and (max-width:1500px){
+    a,body{
+        font-size: 1.1vw;
+    }
+
+    h6{
+        font-size: 1.16vw;
+    }
+
+    h5{
+        font-size: 1.25vw;
+    }
+
+    h4{
+        font-size: 1.35vw; 
+    }
+
+    h3{
+        font-size: 1.45vw;
+    }
+
+    h2{
+        font-size: 1.6vw;
+    }
+
+    h1{
+        font-size: 1.8vw;
+    }
+
+    #logo{
+        margin-top: 3.3%;
+        margin-left: 1.2%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+@media (min-width:1500px) {
+    a,body,h1,h2,h3,h4,h5,h6{
+        font-size: .95vw; 
+    }
+
+    h6{
+        font-size: .99vw;
+    }
+
+    h5{
+        font-size: 1.1vw;
+    }
+
+    h4{
+        font-size: 1.2vw; 
+    }
+
+    h3{
+        font-size: 1.3vw;
+    }
+
+    h2{
+        font-size: 1.45vw;
+    }
+
+    h1{
+        font-size: 1.6vw;
+    }
+
+    #logo{
+        margin-top: 3%;
+        margin-left: 1%;
+    }
+    .allTagWords{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+
+
+.dropdown-menu{ 
+    margin-left: 30%; 
+    width: 50%;
+    min-width: 80px;
+}
+
+.navbarContent{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.surheader nav{
+    flex-direction: column;
+}
+
+.headNavbar, .navbarContent {
+    width: 100%;
+}
+
+.header nav{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+#home{
+    fill : #043962;
+}
+
+.headMenu{
+    margin-left:15%;
+    margin-right:15%;
+    transition: linear .5s;
+    list-style-type: none;
+}
+
+#account{
+    width: 40%;
+    margin: auto;
+    min-width: 30px;
+}
+
+.surheader nav {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+main,form{
+    margin:auto;
+    text-align: center;
+}
+
+#logo{
+    min-height: 85px;
+    width: 4%;
+    min-width: 50px;
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.95); 
+}
+
+
+#dropdown03{
+    text-align: center;
+}
+
+#modules{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    transition : linear .2s;
+}
+
+#moduleHome{
+    background-color: hsla(0,0%,100%,.4);
+}
+
+.otherModules{
+    width: 100%;
+    display : inline;
+    background-color: hsla(0,0%,100%,.2);
+    margin: auto;
+    text-align: center;
+}
+
+.allTagWords{
+    display: grid;
+}
+
+.tagWord{
+    color :#043962;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 40%;
+    background-color: #E6E6E9;
+    border-radius: 5px;
+    margin-bottom: 1%; 
+    transition: linear .2s;
+    min-width: 75px;
+}
+
+.tagWord p{
+    margin:auto;
+}
+
+.closeTag{
+    filter : brightness(55%);
+    margin: auto;   
+    width: 60%;
+    min-width: 10px;
+    transition : linear .2s;
+}
+
+.closeTag:hover{
+    filter : brightness(0) invert(1);
+}
