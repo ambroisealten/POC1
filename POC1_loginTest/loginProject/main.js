@@ -11,8 +11,7 @@ function createWindow () {
     icon: `file://${__dirname}/dist/assets/logo.png`
   })
 
- debugger;
-  win.loadURL(`file://${__dirname}/dist/loginProject/index.html`)
+  win.loadURL(`file://${__dirname}/dist/index.html`)
 
   //// uncomment below to open the DevTools.
   // win.webContents.openDevTools()

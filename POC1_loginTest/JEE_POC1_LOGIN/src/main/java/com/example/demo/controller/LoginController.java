@@ -51,7 +51,7 @@ public class LoginController {
 	 * @return String containing the Json formatted JWToken
 	 * @throws Exception @see ForbiddenException if wrong identifiers
 	 */
-	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
+//	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
 	@PostMapping(value = "/login")
 	@ResponseBody
 	public String login(@RequestBody JsonNode params) throws Exception {
@@ -76,7 +76,7 @@ public class LoginController {
 	 * @throws Exception @see ConflictException if key already exists in database
 	 *                   or @see CreatedException if user is successfully created
 	 */
-	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
+//	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
 	@PostMapping(value = "/signup")
 	@ResponseBody
 	public void signup(@RequestBody JsonNode params) throws Exception {
@@ -105,7 +105,7 @@ public class LoginController {
 	 * @throws Exception @see ForbiddenException if user doesn't have the right
 	 *                   rights
 	 */
-	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
+//	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
 	@GetMapping(value = "/users")
 	@ResponseBody
 	public String getUsers(@RequestAttribute("mail") String mail, @RequestAttribute("role") int role) throws Exception {
@@ -117,7 +117,7 @@ public class LoginController {
 	}
 	
 
-	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
+//	@CrossOrigin(origins = "http://localhost:"+Constants.CLIENT_PORT)
 	@GetMapping(value = "/user")
 	@ResponseBody
 	public String getUser(@RequestParam(value = "mail") String mailToFind, @RequestAttribute("mail") String mail, @RequestAttribute("role") int role) throws Exception {
