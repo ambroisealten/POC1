@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MenuService } from '../service/MenuService.service';
 
 @Component({
   selector: 'ons-page',
   templateUrl: './home-tab.component.html',
   styleUrls: ['./home-tab.component.scss']
 })
-export class HomeTabComponent implements OnInit {
+export class HomeTabComponent{
+  constructor(private menuService: MenuService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  openMenu(){
+    this.menuService.open();
   }
 
 }

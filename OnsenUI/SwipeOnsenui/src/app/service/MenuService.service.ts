@@ -5,9 +5,12 @@ import {Observable, Subject} from 'rxjs';
 export class MenuService {
   subject = new Subject();
   get menu$(): Observable<any> {
+    this.subject.next();
     return this.subject.asObservable();
   }
   open() {
+    console.log("Ici");
+    console.log(this.subject);
     this.subject.next();
   }
 }
