@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { OnsNavigator } from 'ngx-onsenui/directives/ons-navigator';
-import { FirstPageComponent } from '../first-page/first-page.component';
+import { MenuService } from '../services/menuService.service';
 
 @Component({
-  selector: 'ons-page[second]',
+  selector: 'ons-page',
   templateUrl: './second-page.component.html',
   styleUrls: ['./second-page.component.scss']
 })
 export class SecondPageComponent{
 
-  constructor(private navigator: OnsNavigator) { }
-
-  pop() {
-    // Push SecontPageComponent to `ons-navigator
-    this.navigator.element.popPage(this);
+  constructor(private menuService: MenuService) { }
+  openMenu() {
+    this.menuService.open();
   }
 }

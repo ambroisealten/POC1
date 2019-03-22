@@ -7,6 +7,7 @@ import { OnsenModule } from 'ngx-onsenui';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { SecondPageComponent } from './second-page/second-page.component';
+import { MenuService } from './services/menuService.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { SecondPageComponent } from './second-page/second-page.component';
     BrowserModule,
     OnsenModule
   ],
-  providers: [],
+  providers: [ MenuService ],
   bootstrap: [AppComponent],
   schemas: [
       CUSTOM_ELEMENTS_SCHEMA,
