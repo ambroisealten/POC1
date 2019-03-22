@@ -1,2 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<ons-navigator [page]="initialPage"></ons-navigator>
+<ons-splitter #splitter>
+    <ons-splitter-side [page]="sidePage" side="left" width="100%" collapse swipeable>
+    </ons-splitter-side>
+
+    <ons-splitter-content [page]="contentPage">
+    </ons-splitter-content>
+  </ons-splitter>
+  <ons-tabbar>
+    <div class="tabbar__content"></div>
+    <div class="tabbar">
+      <ons-tab label="Page1" icon="ion-home" [page]="tab1" active></ons-tab>
+      <ons-tab label="Page2" icon="ion-ios-browsers" [page]="tab2"></ons-tab>
+      <ons-tab label="Page3" icon="ion-ios-search" [page]="tab3"></ons-tab>
+    </div>
+  </ons-tabbar>

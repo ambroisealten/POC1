@@ -5,27 +5,33 @@ import { AppComponent } from './app.component';
 
 import { OnsenModule } from 'ngx-onsenui';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FirstPageComponent } from './first-page/first-page.component';
-import { SecondPageComponent } from './second-page/second-page.component';
+
+import { ContentPageComponent } from './content-page/content-page.component';
+import { SidePageComponent } from './side-page/side-page.component';
+import { MenuService } from './service/MenuService.service';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HomeTabComponent } from './home-tab/home-tab.component';
+import { Page2Component } from './page2/page2.component';
+import { Page3Component } from './page3/page3.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstPageComponent,
-    SecondPageComponent
+    ContentPageComponent,
+    SidePageComponent,
+    HomeTabComponent,
+    Page2Component,
+    Page3Component
   ],
   imports: [
     BrowserModule,
     OnsenModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent],
-  schemas: [
-      CUSTOM_ELEMENTS_SCHEMA,
-  ],
-  entryComponents: [
-    FirstPageComponent,
-    SecondPageComponent
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [SidePageComponent, ContentPageComponent, HomeTabComponent, Page2Component, Page3Component],
 })
 export class AppModule { }
+
+//platformBrowserDynamic().bootstrapModule(AppModule);
