@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { SearchAutoComponent } from './search-auto/search-auto.component';
 import { SearchService } from './services/search.service';
 import { MatNativeDateModule } from '@angular/material';
+import { SearchAutoGroupComponent } from './search-auto-group/search-auto-group.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     SignupComponent,
     UsersListComponent,
     HeaderComponent,
-    SearchAutoComponent
+    SearchAutoComponent,
+    SearchAutoGroupComponent
   ],
   imports: [
     BrowserModule,
