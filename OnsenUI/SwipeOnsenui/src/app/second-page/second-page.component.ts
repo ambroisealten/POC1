@@ -13,6 +13,6 @@ export class SecondPageComponent{
 
   pop() {
     // Push SecontPageComponent to `ons-navigator
-    this.navigator.element.popPage(FirstPageComponent);
+    this.navigator.element.popPage(this);
   }
 }
