@@ -2,11 +2,17 @@ window.onload = charged;
 window.onchange = changed;
 
 function charged(){
+    /*
+    * Lorsque la page est chargée, lance les fonctions de setup d'EventListeners
+    */
     setHeadMenus();
     setCloseTag();
 }
 
 function changed(){
+    /*
+    * Lorsque la page est changée, lance les fonctions de setup d'EventListeners
+    */
     setTimeout(() => {
         setHeadMenus();
         setCloseTag();
@@ -16,6 +22,9 @@ function changed(){
 
 
 function handler(e){
+    /*
+    * Définit l'action à faire lors d'un click sur un menu dans le 2ème header de notre vue
+    */
     let parentNode = e.target.parentNode;
     if(parentNode.getAttribute('class').includes('headMenu')){
         if(parentNode.getAttribute('class').includes('show')){
@@ -27,6 +36,9 @@ function handler(e){
 }
 
 function setHeadMenus(){
+    /*
+    * Définit l'action à faire lors d'un click, d'un mouseover et d'un mouseout (sortie de souris) dans les menus du 2ème header
+    */
     setTimeout(() =>{
         let headMenus = document.getElementsByClassName('headMenu');
         for(let headMenu of headMenus){
@@ -46,6 +58,9 @@ function setHeadMenus(){
 }
 
 function setCloseTag(){
+    /*
+    * Ajout d'évènements lorsque l'utilisateur met son curseur sur un mot-clé
+    */
     let closeTags = document.getElementsByClassName("closeTag");
     for(let closeTag of closeTags){
         closeTag.addEventListener("mouseover",function(e){

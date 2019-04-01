@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
     private options: string[] = [];
     private optionsTaken:string[] = [];
+    @Input() dataType : string;
+    private urlBase : string = "http://localhost:8080/";
+    private urlAPI : string;
 
     constructor(private httpClient: HttpClient){
 
@@ -15,6 +18,10 @@ export class SearchService {
         const filterValue = value.toLowerCase();
         return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0).sort((one, two) => (one < two ? -1 : 1));
       }
+
+    setUrlAPI(dataType){
+      this.urlAPI = this.urlBase+this.dataType+"/";
+    }
 
     getOptions(callback){
         /*
@@ -29,13 +36,11 @@ export class SearchService {
         let options = { headers: headers };
     
         this.httpClient
-          .get('http://localhost:8080/users', options)
+          .get(this.urlAPI, options)
           .subscribe(data => {
             for(let item of JSON.parse(JSON.stringify(data))){
                 this.options.push(item["mail"]);
             }
-            console.log(this.options);
-            console.log("ICICICICICICICICICICIC"+this.options);
             callback(this.options);
           }, error => {
             console.log(error);// Error getting the data
@@ -51,9 +56,8 @@ export class SearchService {
         let options = { headers: headers };
     
         this.httpClient
-          .get('http://localhost:8080/user?mail='+mail, options)
+          .get(this.urlAPI+'?mail='+mail, options)
           .subscribe(data => {
-            console.log(JSON.parse(JSON.stringify(data)));
             callback(JSON.parse(JSON.stringify(data)));
           }, error => {
             console.log(error);// Error getting the data
@@ -82,5 +86,14 @@ export class SearchService {
             this.optionsTaken.splice(this.optionsTaken.indexOf(option),1);
         }
         return this.optionsTaken;
+    }
+
+    setDataType(newDataType : string){
+      this.dataType = newDataType;
+      this.setUrlAPI(this.dataType);
+    }
+
+    getDataType(){
+      return this.dataType;
     }
 }

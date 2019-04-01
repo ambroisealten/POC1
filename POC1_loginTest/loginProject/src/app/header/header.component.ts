@@ -43,9 +43,9 @@ export class HeaderComponent implements OnInit {
   currentModule : string;
   menusTest : string[] = ["Test","Allo"];
   sousMenus = [
-    new Module("Mission",[new SousMenu("Missions",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Projets",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","search"),new SousLink("Users","users"),new SousLink("A définir","#")])]), 
-    new Module("Compétences",[new SousMenu("Consultants",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Autre chose",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","search"),new SousLink("Users","users"),new SousLink("A définir","#")])]),
-    new Module("Forum",[new SousMenu("Candidats",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Autre chose",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","search"),new SousLink("Users","users"),new SousLink("A définir","#")])])
+    new Module("Mission",[new SousMenu("Missions",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Projets",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","searchUsers"),new SousLink("Users","users"),new SousLink("A définir","#")])]), 
+    new Module("Compétences",[new SousMenu("Consultants",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Autre chose",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","searchUsers"),new SousLink("Users","users"),new SousLink("A définir","#")])]),
+    new Module("Forum",[new SousMenu("Candidats",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Autre chose",[new SousLink("Chercher","search"),new SousLink("A définir","#"),new SousLink("A définir","#")]),new SousMenu("Administration",[new SousLink("Chercher","searchUsers"),new SousLink("Users","users"),new SousLink("A définir","#")])])
     ];
 
   constructor(private titleService : Title,private authGuard : AuthGuard) { 
@@ -57,7 +57,6 @@ export class HeaderComponent implements OnInit {
   }
 
   setCurrentModule(event){
-    console.log(event.target.textContent);
     this.currentModule = (event.target.textContent != this.currentModule) ? event.target.textContent : this.currentModule;
     this.titleService.setTitle("Ambroise - "+this.currentModule);
   }

@@ -239,17 +239,29 @@ body {
     }
 }
 
-
-
 .dropdown-menu{ 
     margin-left: 30%; 
     width: 50%;
     min-width: 80px;
 }
 
+.dropdown-item:hover{
+    background-color: rgba(14,24,110,0.8);
+    color : white;
+    transition : linear .1s;
+}
+
 .navbarContent{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+}
+
+form{
+    width : 70%; 
+}
+
+form mat-form-field{
+    width : 30%;
 }
 
 .surheader nav{
@@ -325,6 +337,7 @@ main,form{
 
 #moduleHome{
     background-color: hsla(0,0%,100%,.4);
+    transition: linear .2s;
 }
 
 .otherModules{
@@ -333,6 +346,7 @@ main,form{
     background-color: hsla(0,0%,100%,.2);
     margin: auto;
     text-align: center;
+    transition: linear .2s;
 }
 
 .allTagWords{

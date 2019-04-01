@@ -1,5 +1,5 @@
-<h2>Exemple d'un champ d'auto-complétion simple</h2>
-<form (ngSubmit)="onSubmitForm()">
+<h2>Recherche d'utilisateurs (par adresse mail)</h2>
+<form class="example-form" (ngSubmit)="onSubmitForm()">
   <mat-form-field>
     <input type="text" placeholder="Rechercher" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -9,13 +9,8 @@
     </mat-autocomplete>
   </mat-form-field>
 </form>
-<h3>Mots-clés pris en compte :</h3>
-<div class="allTagWords">
-  <div class="tagWord" *ngFor="let tagWord of tagWords">
-    <img class="closeTag" src='../../assets/images/close.png' alt="Supprimer {{ tagWord }} en tant que mot-clé" (click)="deleteTagWord($event)">
-    <p>{{ tagWord }}</p>
-  </div>
-</div>
+<h3>Utilisateur trouvé </h3>
+<small>Dans le futur, un lien vers une page d'édition de l'utilisateur (ou redirection instantanée)</small>
 <div *ngIf="result !== undefined" id="results">
   <p>{{ result.name }} {{ result.forname }}, mail : {{ result.mail }}</p>
 </div>

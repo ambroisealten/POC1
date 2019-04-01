@@ -29,7 +29,6 @@ export class UsersListComponent implements OnInit {
     this.httpClient
       .get('http://localhost:8080/users', options)
       .subscribe(data => {
-        console.log(JSON.stringify(data));
         this.users = JSON.stringify(data);
       }, error => {
         console.log(error);// Error getting the data

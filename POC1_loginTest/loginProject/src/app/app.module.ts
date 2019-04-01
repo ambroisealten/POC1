@@ -16,12 +16,14 @@ import { AuthService } from './services/auth.service';
 import { SearchAutoComponent } from './search-auto/search-auto.component';
 import { SearchService } from './services/search.service';
 import { MatNativeDateModule } from '@angular/material';
+import { SearchUsersAutoComponent } from './search-users-auto/search-users-auto.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'users', canActivate:[AuthGuard], component: UsersListComponent },
-  { path: 'search', canActivate:[AuthGuard], component : SearchAutoComponent}
+  { path: 'search', canActivate:[AuthGuard], component : SearchAutoComponent},
+  { path: 'searchUsers', canActivate:[AuthGuard], component: SearchUsersAutoComponent}
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     SignupComponent,
     UsersListComponent,
     HeaderComponent,
-    SearchAutoComponent
+    SearchAutoComponent,
+    SearchUsersAutoComponent
   ],
   imports: [
     BrowserModule,

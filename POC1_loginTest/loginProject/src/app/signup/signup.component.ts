@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit {
     }
     this.httpClient.post('http://localhost:8080/signup', postParams)
       .subscribe(data => {
-        console.log(data);
         window.sessionStorage.setItem("bearerToken", data.toString());
       }, error => {
         console.log(error);// Error getting the data
